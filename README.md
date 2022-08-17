@@ -4,7 +4,9 @@
 
 # Scripting Reference 👩‍💻
 
-## Official (Vanilla) DCS Scripting
+## DCS SSE (Simulator Scripting Engine)
+
+> Vanilla scripting engine documentation and available functionality
 
 - [DCS Scripting Reference Documentation](https://wiki.hoggitworld.com/view/Simulator_Scripting_Engine_Documentation)
 
