@@ -1,6 +1,0 @@
-# By default, don't allow lua here.
-# This allows you to put third party
-# libraries here which will
-# NOT BE DISTRIBUTED WITH THIS CODE
-
-*.lua
