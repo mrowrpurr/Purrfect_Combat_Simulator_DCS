@@ -8,7 +8,8 @@ local function SpawnHostile()
     env.info( "SPAWN " .. groupName )
 
     SPAWN:NewWithAlias( groupName, "Bad Guy " .. math.random(10000, 99999) )
-        :SpawnInZone(SpawnZone, true, 500, 20000)
+        :InitRandomizeRoute(0, 5, 15000)
+        :SpawnInZone(SpawnZone, true, 500, 6096)
 end
 
 MENU_COALITION_COMMAND:New( coalition.side.BLUE, "Spawn Hostile", nil, SpawnHostile )
