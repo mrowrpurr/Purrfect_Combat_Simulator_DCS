@@ -1,10 +1,12 @@
 local ZONE_NAME = "Spawn Zone";
-local GROUP_NAMES = { "Spitfire", "MIG29", "F1", "SU25", "MIG29", "F1", "SU25" }
+local ZONE_GROUP_NAMES = { "MIG29", "F18" }
+
+local DOGFIGHT_GROUP_NAMES = { "F18 - Dogfight", "MIG29 - Dogfight" }
 
 local SpawnZone = ZONE:New( ZONE_NAME )
 
 local function SpawnHostile()
-    local groupName = GROUP_NAMES[math.random(1, 7)]
+    local groupName = ZONE_GROUP_NAMES[math.random(1, 2)]
     env.info( "SPAWN " .. groupName )
 
     SPAWN:NewWithAlias( groupName, "Bad Guy " .. math.random(10000, 99999) )
@@ -12,4 +14,13 @@ local function SpawnHostile()
         :SpawnInZone(SpawnZone, true, 500, 6096)
 end
 
-MENU_COALITION_COMMAND:New( coalition.side.BLUE, "Spawn Hostile", nil, SpawnHostile )
+local function SpawnDogfight()
+    local groupName = DOGFIGHT_GROUP_NAMES[math.random(1, 2)]
+    env.info( "SPAWN " .. groupName )
+
+    SPAWN:NewWithAlias( groupName, "Bad Guy " .. math.random(10000, 99999) )
+        :Spawn()
+end
+
+MENU_COALITION_COMMAND:New( coalition.side.BLUE, "Spawn in Zone", nil, SpawnHostile )
+MENU_COALITION_COMMAND:New( coalition.side.BLUE, "Spawn Dogfight", nil, SpawnDogfight )
