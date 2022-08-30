@@ -8,13 +8,17 @@ local BlueGroupNames = { "Spawn Blue F18", "Spawn Blue F16" }
 
 local function SpawnRed()
     local groupName = RedGroupNames[math.random(1, RedGroupCount)]
+    env.info("SPAWN " .. groupName)
     SPAWN:NewWithAlias( groupName, "Red Spawn " .. math.random( 10000, 99999 ) )
+        :InitRandomizeRoute( 0, 0, 18520, 8534 )
         :SpawnInZone( SpawnZone, true, 1524, 9753 )
 end
 
 local function SpawnBlue()
     local groupName = BlueGroupNames[math.random(1, BlueGroupCount)]
+    env.info("SPAWN " .. groupName)
     SPAWN:NewWithAlias( groupName, "Blue Spawn " .. math.random( 10000, 99999 ) )
+        :InitRandomizeRoute( 0, 0, 18520, 8534 )
         :SpawnInZone( SpawnZone, true, 1524, 9753 )
 end
 
