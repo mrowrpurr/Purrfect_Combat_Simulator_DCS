@@ -1,7 +1,7 @@
 local SpawnZone = ZONE:New( "Spawn Zone" )
 
-local RedGroupCount = 2
-local RedGroupNames = { "Spawn Red F18", "Spawn Red F16" }
+local RedGroupCount = 4
+local RedGroupNames = { "Spawn Red F18", "Spawn Red F16", "Spawn Red Mig29", "Spawn Red Su33" }
 
 local BlueGroupCount = 2
 local BlueGroupNames = { "Spawn Blue F18", "Spawn Blue F16" }
