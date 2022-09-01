@@ -446,6 +446,7 @@ push_stop_command(2.0,	{ message = _("Enabling Countermeasures"), message_timeou
 push_stop_command(dt, { device = devices.MDI_LEFT, action = MDI_commands.MDI_PB_18, value = 1.0 }) -- Menu
 push_stop_command(dt, { device = devices.MDI_LEFT, action = MDI_commands.MDI_PB_17, value = 1.0 }) -- EW
 push_stop_command(dt, { device = devices.MDI_LEFT, action = MDI_commands.MDI_PB_19, value = 1.0 }) -- Mode
+-- push_stop_command(dt, { device = devices.MDI_LEFT, action = MDI_commands.MDI_PB_14, value = 1.0 }) -- HUD ????
 
 push_stop_command(2.0,	{ message = _("Configuring AMRAAM TWS"), message_timeout = stop_sequence_time })
 push_stop_command(dt, { device = devices.HOTAS, action = hotas_commands.STICK_WEAPON_SELECT_IN, value = 1.0 }) -- Select AMRAAM
