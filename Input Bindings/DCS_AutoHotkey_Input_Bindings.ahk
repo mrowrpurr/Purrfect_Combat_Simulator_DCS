@@ -1,3 +1,5 @@
+#InstallKeybdHook
+
 SetKeyDelay, 500
 
 SetTimer, WatchPOV, 5
@@ -8,6 +10,7 @@ MODIFIER := "2Joy1"
 
 ; For TrackIR, I have configured 'Home' as Center
 ; and turned off all of the other shortcuts
+; And End for Tobii
 2Joy2::
 	if GetKeyState(MODIFIER)
 		send {Home}
@@ -18,13 +21,16 @@ MODIFIER := "2Joy1"
 ; Shift 5 - Left (Joy3)
 ; Shift 6 - Right (Joy4)
 ; Shift 7 - Recenter (Joy1)
-Joy2::
-	if GetKeyState(MODIFIER)
-		send +4
-	return
+;Joy2::
+;	if GetKeyState(MODIFIER)
+;		sendinput {End}
+;		; send +4
+;	return
+
 Joy3::
 	if GetKeyState(MODIFIER)
-		send +5
+		send +4
+		; send +5
 	return
 Joy4::
 	if GetKeyState(MODIFIER)
