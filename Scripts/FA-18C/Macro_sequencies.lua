@@ -441,12 +441,6 @@ push_stop_command(dt, { device = devices.MDI_RIGHT, action = MDI_commands.MDI_PB
 push_stop_command(dt, { device = devices.MDI_RIGHT, action = MDI_commands.MDI_PB_14, value = 1.0 }) -- 
 push_stop_command(dt, { device = devices.MDI_RIGHT, action = MDI_commands.MDI_PB_14, value = 1.0 }) -- 
 push_stop_command(dt, { device = devices.MDI_RIGHT, action = MDI_commands.MDI_PB_14, value = 1.0 }) -- 
-push_stop_command(dt, { device = devices.MDI_RIGHT, action = MDI_commands.MDI_PB_14, value = 1.0 }) -- 
-push_stop_command(dt, { device = devices.MDI_RIGHT, action = MDI_commands.MDI_PB_14, value = 1.0 }) -- 
-push_stop_command(dt, { device = devices.MDI_RIGHT, action = MDI_commands.MDI_PB_14, value = 1.0 }) -- 
-push_stop_command(dt, { device = devices.MDI_RIGHT, action = MDI_commands.MDI_PB_14, value = 1.0 }) -- 
-push_stop_command(dt, { device = devices.MDI_RIGHT, action = MDI_commands.MDI_PB_14, value = 1.0 }) -- 
-push_stop_command(dt, { device = devices.MDI_RIGHT, action = MDI_commands.MDI_PB_14, value = 1.0 }) -- 
 
 push_stop_command(2.0,	{ message = _("Enabling Countermeasures"), message_timeout = stop_sequence_time })
 push_stop_command(dt, { device = devices.MDI_LEFT, action = MDI_commands.MDI_PB_18, value = 1.0 }) -- Menu
@@ -477,8 +471,6 @@ push_stop_command(dt, { device = devices.HOTAS, action = hotas_commands.STICK_WE
 push_stop_command(dt, { device = devices.MDI_RIGHT, action = MDI_commands.MDI_PB_6, value = 1.0 }) -- 6 Bar Scan
 push_stop_command(dt, { device = devices.MDI_RIGHT, action = MDI_commands.MDI_PB_19, value = 1.0 }) -- 20 degrees
 push_stop_command(dt, { device = devices.MDI_RIGHT, action = MDI_commands.MDI_PB_19, value = 1.0 })
-push_stop_command(dt, { device = devices.MDI_RIGHT, action = MDI_commands.MDI_PB_19, value = 1.0 })
-push_stop_command(dt, { device = devices.MDI_RIGHT, action = MDI_commands.MDI_PB_19, value = 1.0 })
 push_stop_command(dt, { device = devices.MDI_RIGHT, action = MDI_commands.MDI_PB_12, value = 1.0 }) -- 10 nm
 push_stop_command(dt, { device = devices.MDI_RIGHT, action = MDI_commands.MDI_PB_12, value = 1.0 })
 push_stop_command(dt, { device = devices.MDI_RIGHT, action = MDI_commands.MDI_PB_13, value = 1.0 }) -- Set
@@ -496,6 +488,9 @@ push_stop_command(dt, { device = devices.AMPCD, action = AMPCD_commands.AMPCD_PB
 push_stop_command(dt, { device = devices.AMPCD, action = AMPCD_commands.AMPCD_PB_8, value = 1.0 })
 push_stop_command(dt, { device = devices.AMPCD, action = AMPCD_commands.AMPCD_PB_8, value = 1.0 })
 push_stop_command(dt, { device = devices.AMPCD, action = AMPCD_commands.AMPCD_PB_19, value = 1.0 }) -- Step
+
+push_stop_command(2.0,	{ message = _("TWS"), message_timeout = stop_sequence_time })
+push_stop_command(dt, { device = devices.MDI_RIGHT, action = MDI_commands.MDI_PB_5, value = 1.0 }) -- TWS
 
 push_stop_command(2.0,	{message = _("DONE WITH IN-AIR SETUP!"), message_timeout = stop_sequence_time})
 
