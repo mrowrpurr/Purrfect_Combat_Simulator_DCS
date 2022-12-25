@@ -439,8 +439,6 @@ push_stop_command(dt, { device = devices.MDI_RIGHT, action = MDI_commands.MDI_PB
 push_stop_command(dt, { device = devices.MDI_RIGHT, action = MDI_commands.MDI_PB_14, value = 1.0 }) -- 
 push_stop_command(dt, { device = devices.MDI_RIGHT, action = MDI_commands.MDI_PB_14, value = 1.0 }) -- 
 push_stop_command(dt, { device = devices.MDI_RIGHT, action = MDI_commands.MDI_PB_14, value = 1.0 }) -- 
-push_stop_command(dt, { device = devices.MDI_RIGHT, action = MDI_commands.MDI_PB_14, value = 1.0 }) -- 
-push_stop_command(dt, { device = devices.MDI_RIGHT, action = MDI_commands.MDI_PB_14, value = 1.0 }) -- 
 
 push_stop_command(2.0,	{ message = _("Enabling Countermeasures"), message_timeout = stop_sequence_time })
 push_stop_command(dt, { device = devices.MDI_LEFT, action = MDI_commands.MDI_PB_18, value = 1.0 }) -- Menu
