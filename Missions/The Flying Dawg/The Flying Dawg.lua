@@ -1,62 +1,91 @@
-local SpawnZone = ZONE:New( "Spawn Zone" )
-
-local RedGroupCount = 4
-local RedGroupNames = { "Spawn Red F18", "Spawn Red F16", "Spawn Red Mig29", "Spawn Red Su33" }
-
-local BlueGroupCount = 2
-local BlueGroupNames = { "Spawn Blue F18", "Spawn Blue F16" }
-
-local RedBVRGroupCount = 3
-local RedBVRGroups = { "BVR Red FIGHT F14 Spawn", "BVR Red FIGHT F14 Spawn", "BVR Red FIGHT F14 Spawn" }
--- local RedBVRGroups = { "BVR Red FIGHT F14 Spawn", "BVR Red FIGHT F16 Spawn", "BVR Red FIGHT F18 Spawn" }
-
-local RedBFMGroupCount = 3
-local RedBFMGroups = { "FIGHT Red F14 Spawn", "FIGHT Red F16 Spawn", "FIGHT Red F18 Spawn" }
-
-local function SpawnRed()
-    local groupName = RedGroupNames[math.random(1, RedGroupCount)]
-    env.info("SPAWN " .. groupName)
-    SPAWN:NewWithAlias( groupName, "Red Spawn " .. math.random( 10000, 99999 ) )
-        :InitRandomizeRoute( 0, 0, 18520, 8534 )
-        :SpawnInZone( SpawnZone, true, 1524, 9753 )
-end
-
-local function SpawnBlue()
-    local groupName = BlueGroupNames[math.random(1, BlueGroupCount)]
-    env.info("SPAWN " .. groupName)
-    SPAWN:NewWithAlias( groupName, "Blue Spawn " .. math.random( 10000, 99999 ) )
-        :InitRandomizeRoute( 0, 0, 18520, 8534 )
-        :SpawnInZone( SpawnZone, true, 1524, 9753 )
-end
-
-local function SpawnAny()
-    if math.random( 1, 2 ) == 1 then
-        SpawnRed()
+local function SpawnRedBVR_Directional(direction)
+    if math.random(0, 1) == 1 then
+        SPAWN:NewWithAlias("BVR Red FIGHT Mig29 Spawn " .. direction, "BVR Red FIGHT Mig29 Spawn N" .. math.random( 10000, 99999 ) )
+            :Spawn()
     else
-        SpawnBlue()
+        SPAWN:NewWithAlias("BVR Red FIGHT Flanker Spawn " .. direction, "BVR Red FIGHT Flanker Spawn N" .. math.random( 10000, 99999 ) )
+            :Spawn()
     end
 end
 
-local function SpawnRedBVR()
-    local groupName = RedBVRGroups[math.random(1, RedBVRGroupCount)]
-    env.info("SPAWN " .. groupName)
-    SPAWN:NewWithAlias( groupName, "Red BVR Spawn " .. math.random( 10000, 99999 ) )
-        :Spawn()
+local function SpawnRedBVR_North()
+    SpawnRedBVR_Directional("N")
+end
+local function SpawnRedBVR_South()
+    SpawnRedBVR_Directional("S")
+end
+local function SpawnRedBVR_East()
+    SpawnRedBVR_Directional("E")
+end
+local function SpawnRedBVR_West()
+    SpawnRedBVR_Directional("W")
+end
+local function SpawnRedBVR_Center()
+    SpawnRedBVR_Directional("C")
+end
+local function SpawnRedBVR_Random()
+    local random = math.random(0, 4)
+    if random == 0 then
+        SpawnRedBVR_Directional("N")
+    elseif random == 1 then
+        SpawnRedBVR_Directional("S")
+    elseif random == 2 then
+        SpawnRedBVR_Directional("E")
+    elseif random == 3 then
+        SpawnRedBVR_Directional("W")
+    else
+        SpawnRedBVR_Directional("C")
+    end
+end
+local function SpawnRedBVR_RandomTwo()
+    local random = math.random(0, 4)
+    if random == 0 then
+        SpawnRedBVR_Directional("N")
+        SpawnRedBVR_Directional("N")
+    elseif random == 1 then
+        SpawnRedBVR_Directional("S")
+        SpawnRedBVR_Directional("S")
+    elseif random == 2 then
+        SpawnRedBVR_Directional("E")
+        SpawnRedBVR_Directional("E")
+    elseif random == 3 then
+        SpawnRedBVR_Directional("W")
+        SpawnRedBVR_Directional("W")
+    else
+        SpawnRedBVR_Directional("C")
+        SpawnRedBVR_Directional("C")
+    end
+end
+local function SpawnRedBVR_RandomThree()
+    local random = math.random(0, 4)
+    if random == 0 then
+        SpawnRedBVR_Directional("N")
+        SpawnRedBVR_Directional("N")
+        SpawnRedBVR_Directional("N")
+    elseif random == 1 then
+        SpawnRedBVR_Directional("S")
+        SpawnRedBVR_Directional("S")
+        SpawnRedBVR_Directional("S")
+    elseif random == 2 then
+        SpawnRedBVR_Directional("E")
+        SpawnRedBVR_Directional("E")
+        SpawnRedBVR_Directional("E")
+    elseif random == 3 then
+        SpawnRedBVR_Directional("W")
+        SpawnRedBVR_Directional("W")
+        SpawnRedBVR_Directional("W")
+    else
+        SpawnRedBVR_Directional("C")
+        SpawnRedBVR_Directional("C")
+        SpawnRedBVR_Directional("C")
+    end
 end
 
-local function SpawnRedBFM()
-    local groupName = RedBFMGroups[math.random(1, RedBFMGroupCount)]
-    env.info("SPAWN " .. groupName)
-    SPAWN:NewWithAlias( groupName, "Red BFM Spawn " .. math.random( 10000, 99999 ) )
-        :Spawn()
-end
-
-MENU_COALITION_COMMAND:New( coalition.side.BLUE, "Spawn Bogey", nil, SpawnAny )
-MENU_COALITION_COMMAND:New( coalition.side.BLUE, "Spawn Hostile", nil, SpawnRed )
-MENU_COALITION_COMMAND:New( coalition.side.BLUE, "Spawn Friendly", nil, SpawnBlue )
-MENU_COALITION_COMMAND:New( coalition.side.BLUE, "Spawn BVR Slot", nil, SpawnRedBVR )
-MENU_COALITION_COMMAND:New( coalition.side.BLUE, "Spawn BFM Slot", nil, SpawnRedBFM )
-
-MENU_COALITION_COMMAND:New( coalition.side.RED, "Spawn Bogey", nil, SpawnAny )
-MENU_COALITION_COMMAND:New( coalition.side.RED, "Spawn Hostile", nil, SpawnBlue )
-MENU_COALITION_COMMAND:New( coalition.side.RED, "Spawn Friendly", nil, SpawnRed )
+MENU_COALITION_COMMAND:New( coalition.side.BLUE, "BVR North", nil, SpawnRedBVR_North )
+MENU_COALITION_COMMAND:New( coalition.side.BLUE, "BVR South", nil, SpawnRedBVR_South )
+MENU_COALITION_COMMAND:New( coalition.side.BLUE, "BVR East", nil, SpawnRedBVR_East )
+MENU_COALITION_COMMAND:New( coalition.side.BLUE, "BVR West", nil, SpawnRedBVR_West )
+MENU_COALITION_COMMAND:New( coalition.side.BLUE, "BVR Center", nil, SpawnRedBVR_Center )
+MENU_COALITION_COMMAND:New( coalition.side.BLUE, "BVR Random", nil, SpawnRedBVR_Random )
+MENU_COALITION_COMMAND:New( coalition.side.BLUE, "BVR Random x2", nil, SpawnRedBVR_RandomTwo )
+MENU_COALITION_COMMAND:New( coalition.side.BLUE, "BVR Random x3", nil, SpawnRedBVR_RandomThree )
